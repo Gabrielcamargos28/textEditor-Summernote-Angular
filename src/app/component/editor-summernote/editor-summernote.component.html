@@ -1,7 +1,8 @@
-<h1>Editor Summernote</h1>
-<div [ngxSummernote]="config" [ngxSummernoteView]="htmlContent"></div>
+<div class="editor-container">
+    <h1>Editor Summernote</h1>
+    <div [ngxSummernote]="config" [ngxSummernoteView]="htmlContent"></div>
 
-<!-- Visualização do HTML -->
-<h3>HTML View</h3>
-<div >{{ htmlContent}}</div>
-<div [ngxSummernoteView]="htmlContent"></div>
+    <h3>HTML View</h3>
+    <div>{{ htmlContent }}</div>
+    <div [ngxSummernoteView]="htmlContent"></div>
+</div>

@@ -7,20 +7,36 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EditorSummernoteComponent } from './component/editor-summernote/editor-summernote.component';
-import { NavbarComponent } from './component/navbar/navbar.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { MenuComponent } from './component/menu/menu.component';
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatListModule } from "@angular/material/list";
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './component/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
     EditorSummernoteComponent,
-    NavbarComponent
+    MenuComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxSummernoteModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

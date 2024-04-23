@@ -10,5 +10,5 @@ import { SummernoteOptions } from 'ngx-summernote/lib/summernote-options';
 })
 export class AppComponent {
   title = 'summernote';
- 
+  opened = false
 }

@@ -1,0 +1,32 @@
+mat-sidenav-container{
+    height: calc(208vh - 115vh);
+}
+.toolbar{
+    background-color: green; 
+    color: #fff; 
+}
+mat-sidenav{
+    width: 200px;
+    background-color: green;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+.nav-button{
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px;
+    background-color: rgb(1, 77, 1); /* Cor de fundo dos botões */
+    border: none;
+    border-bottom: 1px solid #ccc; /* Adiciona uma linha entre os botões */
+}
+.nav-button a {
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+}
+.conteudo {
+    margin-top: 20px;
+    margin-left: 50px;
+}
