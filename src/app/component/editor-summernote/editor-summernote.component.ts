@@ -34,7 +34,7 @@ export class EditorSummernoteComponent implements OnInit {
   previewContent = ` 
         <div>
           <h1>Questão</h1>
-          <div>${this.corpo}</div>
+          <div>${this.corpo}</div><br>
           <p><strong>1)</strong> ${this.alternativa1}</p>
           <p><strong>2)</strong> ${this.alternativa2}</p>
           <p><strong>3)</strong> ${this.alternativa3}</p>
@@ -163,11 +163,11 @@ export class EditorSummernoteComponent implements OnInit {
     this.previewContent = `
       <div>
         <h1>Questão</h1>
-        <div>${this.corpo}</div>
-        <p><strong>Alternativa 1:</strong> ${this.alternativa1}</p>
-        <p><strong>Alternativa 2:</strong> ${this.alternativa2}</p>
-        <p><strong>Alternativa 3:</strong> ${this.alternativa3}</p>
-        <p><strong>Alternativa 4:</strong> ${this.alternativa4}</p>
+        <div>${this.corpo}</div><br>
+        <p><strong>1) </strong> ${this.alternativa1}</p>
+        <p><strong>2) </strong> ${this.alternativa2}</p>
+        <p><strong>3) </strong> ${this.alternativa3}</p>
+        <p><strong>4) </strong> ${this.alternativa4}</p>
       </div>
     `;
   }
@@ -176,11 +176,11 @@ export class EditorSummernoteComponent implements OnInit {
       <div>
         <h2>Questão</h2>
         <div>${this.corpo}</div>
-        <h2>Alternativas</h2>
-        <span>(1) - ${this.alternativa1}</span><br>
-        <span>(2) - ${this.alternativa2}</span><br>
-        <span>(3) - ${this.alternativa3}</span><br>
-        <span>(4) - ${this.alternativa4}</span><br>
+        <br>
+        <span>(1) ${this.alternativa1}</span><br>
+        <span>(2) ${this.alternativa2}</span><br>
+        <span>(3) ${this.alternativa3}</span><br>
+        <span>(4) ${this.alternativa4}</span><br>
       </div>
     `;
     const tempElement = document.createElement('div');

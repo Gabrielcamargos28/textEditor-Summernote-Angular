@@ -4,7 +4,12 @@
     width: 30em;
 }
 .alt{
+  margin-right: 15px;
   width: 30rem;
+}
+.box-questoes-sup{
+  display: flex;
+  margin: 2em;
 }
 
   

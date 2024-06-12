@@ -1,30 +1,40 @@
-<div class="editor-container">
-    <h1>Corpo</h1>
-    <div [ngxSummernote]="config" [(ngModel)]="corpo" [ngxSummernoteView]="corpo" (ngModelChange)="atualizarPrevia()"></div>
+
+  
+  <div class="box-questoes-sup">
+    <div class="alt">
+      <h1>Corpo</h1>
+      <div [ngxSummernote]="config" [(ngModel)]="corpo" [ngxSummernoteView]="corpo" (ngModelChange)="atualizarPrevia()"></div>
+    </div>
+    <div class="alt">
+      <h3>Pré-visualização do PDF</h3>
+      <div class="summernote-alternativa" [ngxSummernote]="configPre" [(ngModel)]="previewContent" [ngxSummernoteView]="previewContent" (ngModelChange)="atualizarPrevia()"></div>
+      <button (click)="salvarConteudo()">Salvar em PDF</button>
+    </div>
   </div>
+
+  
+  
 <div class="box-questoes">
-
-  <div class="alt">
-    <h2>Alternativa 1</h2>
-    <div class="summernote-alternativa" [ngxSummernote]="configAlternativa" [(ngModel)]="alternativa1" [ngxSummernoteView]="alternativa1" (ngModelChange)="atualizarPrevia()"></div>
+  <div class="box-questoes-sup">
+    <div class="alt">
+      <h2>Alternativa 1</h2>
+      <div class="summernote-alternativa" [ngxSummernote]="configAlternativa" [(ngModel)]="alternativa1" [ngxSummernoteView]="alternativa1" (ngModelChange)="atualizarPrevia()"></div>
+    </div>
+    <div class="alt">
+      <h2>Alternativa 2</h2>
+      <div class="summernote-alternativa" [ngxSummernote]="configAlternativa" [(ngModel)]="alternativa2" [ngxSummernoteView]="alternativa2" (ngModelChange)="atualizarPrevia()"></div>
+    </div>
   </div>
-  
-  <div class="alt">
-    <h2>Alternativa 2</h2>
-    <div class="summernote-alternativa" [ngxSummernote]="configAlternativa" [(ngModel)]="alternativa2" [ngxSummernoteView]="alternativa2" (ngModelChange)="atualizarPrevia()"></div>
+
+  <div class="box-questoes-sup">
+    <div class="alt">
+      <h2>Alternativa 3</h2>
+    <div class="summernote-alternativa" [ngxSummernote]="configAlternativa" [(ngModel)]="alternativa3" [ngxSummernoteView]="alternativa3" (ngModelChange)="atualizarPrevia()"></div>
+    </div>
+   <div class="alt">
+    <h2>Alternativa 4</h2>
+    <div class="summernote-alternativa" [ngxSummernote]="configAlternativa" [(ngModel)]="alternativa4" [ngxSummernoteView]="alternativa4" (ngModelChange)="atualizarPrevia()"></div>  
   </div>
-  
-
-  <h2>Alternativa 3</h2>
-  <div class="summernote-alternativa" [ngxSummernote]="configAlternativa" [(ngModel)]="alternativa3" [ngxSummernoteView]="alternativa3" (ngModelChange)="atualizarPrevia()"></div>
-
-  <h2>Alternativa 4</h2>
-  <div class="summernote-alternativa" [ngxSummernote]="configAlternativa" [(ngModel)]="alternativa4" [ngxSummernoteView]="alternativa4" (ngModelChange)="atualizarPrevia()"></div>  
-  <br>
-  <h3>Pré-visualização do PDF</h3>
-  <div class="summernote-alternativa" [ngxSummernote]="configPre" [(ngModel)]="previewContent" [ngxSummernoteView]="previewContent" (ngModelChange)="atualizarPrevia()"></div>
-
-  <button (click)="salvarConteudo()">Salvar em PDF</button>
-  
+  </div> 
 </div>
   
