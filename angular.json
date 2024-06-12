@@ -29,7 +29,8 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/summernote/dist/summernote-lite.min.js"
+              "node_modules/summernote/dist/summernote-lite.min.js",
+              "src/app/component/editor-summernote/pluginPrint.js"
             ]
           },
           "configurations": {

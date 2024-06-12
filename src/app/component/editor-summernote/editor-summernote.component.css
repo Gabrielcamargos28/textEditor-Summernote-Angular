@@ -1,1 +1,10 @@
+/* Estilos gerais para o container do editor */
+.editor-container {
+    display: flex;
+    width: 30em;
+}
+.alt{
+  width: 30rem;
+}
 
+  
