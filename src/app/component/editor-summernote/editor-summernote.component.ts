@@ -4,7 +4,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SummernoteOptions } from 'ngx-summernote/lib/summernote-options';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { image } from 'html2canvas/dist/types/css/types/image';
+import { MatDialog } from '@angular/material/dialog';
+import { EditDialogComponent } from 'src/app/edit-dialog/edit-dialog.component';
+
+interface DynamicFields {
+  content: string;
+  alternativa1: string;
+  alternativa2: string;
+  alternativa3: string;
+  alternativa4: string;
+}
 
 
 @Component({
@@ -12,7 +21,8 @@ import { image } from 'html2canvas/dist/types/css/types/image';
   templateUrl: './editor-summernote.component.html',
   styleUrls: ['./editor-summernote.component.css']
 })
-export class EditorSummernoteComponent implements OnInit {
+
+export class EditorSummernoteComponent implements OnInit, DynamicFields {
 
   ngOnInit(): void { }
 
@@ -22,25 +32,38 @@ export class EditorSummernoteComponent implements OnInit {
     html: new FormControl('', Validators.required)
   });
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer, private dialog: MatDialog) { }
 
+  content = "Digite o as";
   corpo = "Digite o corpo";
-  questao = '<p>Este é um teste inicial.</p>';
-  teste = "<h1>olá</h1>";
-  alternativa1 = "digite o conteudo";
-  alternativa2 = "digite o conteudo";
-  alternativa3 = "digite o conteudo";
-  alternativa4 = "digite o conteudo";
-  previewContent = ` 
-        <div>
-          <h1>Questão</h1>
-          <div>${this.corpo}</div><br>
-          <p><strong>1)</strong> ${this.alternativa1}</p>
-          <p><strong>2)</strong> ${this.alternativa2}</p>
-          <p><strong>3)</strong> ${this.alternativa3}</p>
-          <p><strong>4)</strong> ${this.alternativa4}</p>
-      </div>`;
+  alternativa1 = "Digite o conteúdo";
+  alternativa2 = "Digite o conteúdo";
+  alternativa3 = "Digite o conteúdo";
+  alternativa4 = "Digite o conteúdo";
 
+  openDialog(field: keyof DynamicFields): void {
+    const dialogRef = this.dialog.open(EditDialogComponent, {
+      width: '80%',
+      data: { content: this[field] }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this[field] = result.content;
+        this.atualizarPrevia()
+      }
+    });
+  }
+
+  previewContent = ` 
+    <div>
+      <h1>Questão</h1>
+      <div>${this.corpo}</div><br>
+      <p><strong>1)</strong> ${this.alternativa1}</p>
+      <p><strong>2)</strong> ${this.alternativa2}</p>
+      <p><strong>3)</strong> ${this.alternativa3}</p>
+      <p><strong>4)</strong> ${this.alternativa4}</p>
+    </div>`;
 
   get f() {
     return this.form.controls;
@@ -55,7 +78,8 @@ export class EditorSummernoteComponent implements OnInit {
     toolbar: [      
       ['print', ['print']]
     ],
-  }
+  };
+
   public config: SummernoteOptions = {
     airMode: false,
     popover: {
@@ -105,7 +129,6 @@ export class EditorSummernoteComponent implements OnInit {
       ['customButtons', ['testBtn']],
       ['view', ['fullscreen', 'codeview', 'help']],
       ['print', ['print']]
-
     ],
     fontNames: ['Arial', 'Times New Roman', 'Inter', 'Comic Sans MS', 'Courier New', 'Roboto', 'Times', 'MangCau', 'BayBuomHep', 'BaiSau', 'BaiHoc', 'CoDien', 'BucThu', 'KeChuyen', 'MayChu', 'ThoiDai', 'ThuPhap-Ivy', 'ThuPhap-ThienAn'],
     buttons: { }
@@ -153,24 +176,27 @@ export class EditorSummernoteComponent implements OnInit {
       ['para', ['style0', 'ul', 'ol', 'paragraph', 'height']],
       ['insert', ['picture', 'hr']],
       ['view', []],
-
     ],
     fontNames: ['Arial', 'Times New Roman', 'Inter', 'Comic Sans MS', 'Courier New', 'Roboto', 'Times', 'MangCau', 'BayBuomHep', 'BaiSau', 'BaiHoc', 'CoDien', 'BucThu', 'KeChuyen', 'MayChu', 'ThoiDai', 'ThuPhap-Ivy', 'ThuPhap-ThienAn'],
     buttons: { }
-};
+  };
 
   atualizarPrevia() {
-    this.previewContent = `
+    this.previewContent = this.getPreviewContent();
+  }
+  getPreviewContent(): string {
+    return `
       <div>
         <h1>Questão</h1>
-        <div>${this.corpo}</div><br>
-        <p><strong>1) </strong> ${this.alternativa1}</p>
-        <p><strong>2) </strong> ${this.alternativa2}</p>
-        <p><strong>3) </strong> ${this.alternativa3}</p>
-        <p><strong>4) </strong> ${this.alternativa4}</p>
+        <div>${this.content}</div><br>
+        <p><strong>1)</strong> ${this.alternativa1}</p>
+        <p><strong>2)</strong> ${this.alternativa2}</p>
+        <p><strong>3)</strong> ${this.alternativa3}</p>
+        <p><strong>4)</strong> ${this.alternativa4}</p>
       </div>
     `;
   }
+
   salvarConteudo() {
     const content = `
       <div>

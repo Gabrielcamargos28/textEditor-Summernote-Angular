@@ -17,12 +17,15 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './component/home/home.component';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
     EditorSummernoteComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    EditDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { HomeComponent } from './component/home/home.component';
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
