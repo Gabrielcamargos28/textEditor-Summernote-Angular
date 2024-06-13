@@ -57,7 +57,6 @@ export class EditorSummernoteComponent implements OnInit, DynamicFields {
 
   previewContent = ` 
     <div>
-      <h1>Questão</h1>
       <div>${this.corpo}</div><br>
       <p><strong>1)</strong> ${this.alternativa1}</p>
       <p><strong>2)</strong> ${this.alternativa2}</p>
@@ -187,7 +186,6 @@ export class EditorSummernoteComponent implements OnInit, DynamicFields {
   getPreviewContent(): string {
     return `
       <div>
-        <h1>Questão</h1>
         <div>${this.content}</div><br>
         <p><strong>1)</strong> ${this.alternativa1}</p>
         <p><strong>2)</strong> ${this.alternativa2}</p>
@@ -200,8 +198,7 @@ export class EditorSummernoteComponent implements OnInit, DynamicFields {
   salvarConteudo() {
     const content = `
       <div>
-        <h2>Questão</h2>
-        <div>${this.corpo}</div>
+        <div>${this.content}</div>
         <br>
         <span>(1) ${this.alternativa1}</span><br>
         <span>(2) ${this.alternativa2}</span><br>
